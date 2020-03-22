@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>六大设计原则 | Code Alchemist</title>
-  <meta name="keywords" content=" 设计模式 ">
-  <meta name="description" content="六大设计原则 | Code Alchemist">
+  <title>缓存技术 | Code Alchemist</title>
+  <meta name="keywords" content=" 缓存 ">
+  <meta name="description" content="缓存技术 | Code Alchemist">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简介毕业于郑州大学物理系 java攻城狮 喜欢钻研，深度技术宅">
 <meta property="og:type" content="website">
@@ -300,9 +300,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-backend/design-principle" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-cs/cache" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">六大设计原则</h1>
+        <h1 class="article-title">缓存技术</h1>
     
     <div class="article-meta">
         
@@ -312,26 +312,26 @@
         
         <span class="book">
             
-                <a  data-rel="后端">后端</a>
+                <a  data-rel="计算机基础">计算机基础</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a class="color5">设计模式</a>
+            <a class="color3">缓存</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-03-19 09:25:47'>2019-08-13 20:35</time>
+        创建时间:<time class="date" title='更新时间: 2020-03-22 12:21:51'>2020-03-22 12:02</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:437</span>
+        <span>字数:31</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -361,7 +361,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Single-Responsibilty-Principle-SRP"><span class="toc-text">Single Responsibilty Principle(SRP)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Open-Closed-Principle（OCP）"><span class="toc-text">Open-Closed Principle（OCP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Liskov-Substitution-Principe（LSP）"><span class="toc-text">Liskov Substitution Principe（LSP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dependency-Inversion-Principe（DIP）"><span class="toc-text">Dependency Inversion Principe（DIP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interface-Segregation-Principe（ISP）"><span class="toc-text">Interface Segregation Principe（ISP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Law-Of-Demeter-LoD"><span class="toc-text">Law Of Demeter(LoD)</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#缓存"><span class="toc-text">缓存</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -377,19 +377,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>六大设计原则则是学习设计模式的基本功，而设计模式是软件开发人员的内功。</p>
-<a id="more"></a>
-
-<p>这六大设计模式分别是单一职责、开闭原则、里氏代换、依赖倒转、接口隔离、迪米特法则。</p>
-<p>六大设计原则好比是一把尺子，它们可以帮助我们找出代码中设计不合理的地方，同时也是用来评价一个设计模式使用效果的重要指标。</p>
-<p>接下来我们一一介绍这六大设计原则。</p>
-<h2 id="Single-Responsibilty-Principle-SRP"><a href="#Single-Responsibilty-Principle-SRP" class="headerlink" title="Single Responsibilty Principle(SRP)"></a>Single Responsibilty Principle(SRP)</h2><p><strong>单一职责原则</strong>：一个类只负责一个功能领域中的相应职责。或者可以定义为：就一个类而言应该只有一个引起它变化的原因。</p>
-<h2 id="Open-Closed-Principle（OCP）"><a href="#Open-Closed-Principle（OCP）" class="headerlink" title="Open-Closed Principle（OCP）"></a>Open-Closed Principle（OCP）</h2><p><strong>开闭原则</strong>：一个软件实体应该对扩展开放，对修改关闭。即软件实体应尽量在不修改原有代码的情况下进行扩展。</p>
-<p>简而言之，就是在增加新功能的时候，尽量不会造成原有代码的变动。</p>
-<h2 id="Liskov-Substitution-Principe（LSP）"><a href="#Liskov-Substitution-Principe（LSP）" class="headerlink" title="Liskov Substitution Principe（LSP）"></a>Liskov Substitution Principe（LSP）</h2><p><strong>里氏代换原则</strong>：所有引用基类（父类）的地方必须能够透明地使用其子类对象。</p>
-<h2 id="Dependency-Inversion-Principe（DIP）"><a href="#Dependency-Inversion-Principe（DIP）" class="headerlink" title="Dependency Inversion Principe（DIP）"></a>Dependency Inversion Principe（DIP）</h2><p><strong>依赖倒转原则</strong>：抽象不应该依赖细节，细节应当依赖抽象。换言之，要针对接口编程，而不是针对实现编程。</p>
-<h2 id="Interface-Segregation-Principe（ISP）"><a href="#Interface-Segregation-Principe（ISP）" class="headerlink" title="Interface Segregation Principe（ISP）"></a>Interface Segregation Principe（ISP）</h2><p><strong>接口隔离原则</strong>：使用多个专门的接口，而不使用单一的总接口，即客户端不应该依赖那些它不需要的接口。</p>
-<h2 id="Law-Of-Demeter-LoD"><a href="#Law-Of-Demeter-LoD" class="headerlink" title="Law Of Demeter(LoD)"></a>Law Of Demeter(LoD)</h2><p><strong>迪米特法则</strong>：一个软件实体应该尽可能少地与其他实体发生相互作用。</p>
+        <h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>缓存简单来讲往往就是把数据从访问慢的介质拿到访问快的介质中</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 xiejinjie1234@qq.com </span>
@@ -403,12 +391,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>六大设计原则</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">437</span></p>
+    <p><span class="copy-title">文章标题:</span>缓存技术</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">31</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="谢晋杰">谢晋杰</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-08-13, 20:35:54</p>
-    <p><span class="copy-title">最后更新:</span>2020-03-19, 09:25:47</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/08/13/backend/design-principle/" title="六大设计原则">https://blog.kcoder.top/2019/08/13/backend/design-principle/</a>
+    <p><span class="copy-title">发布时间:</span>2020-03-22, 12:02:24</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-22, 12:21:51</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/03/22/cs/cache/" title="缓存技术">https://blog.kcoder.top/2020/03/22/cs/cache/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
