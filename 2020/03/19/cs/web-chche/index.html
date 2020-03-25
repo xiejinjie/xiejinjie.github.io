@@ -148,7 +148,7 @@
     
         
             
-            <li><div data-rel="其他">其他<small>(1)</small></div>
+            <li><div data-rel="读书">读书<small>(2)</small></div>
                 
             </li>
             
@@ -156,7 +156,7 @@
     
         
             
-            <li><div data-rel="读书">读书<small>(2)</small></div>
+            <li><div data-rel="其他">其他<small>(1)</small></div>
                 
             </li>
             
@@ -264,20 +264,20 @@
             <span class="post-date" title="2019-07-02 20:41:26">2019/07/02</span>
         </a>
         
-        <a  class="其他 "
-           href="/2019/08/29/other/java-years/"
-           data-tag=""
-           data-author="谢晋杰" >
-            <span class="post-title" title="我学java这么多年">我学java这么多年</span>
-            <span class="post-date" title="2019-08-29 21:37:27">2019/08/29</span>
-        </a>
-        
         <a  class="读书 "
            href="/2019/07/04/read/container-changes-the-world/"
            data-tag="读书笔记"
            data-author="谢晋杰" >
             <span class="post-title" title="集装箱改变世界">集装箱改变世界</span>
             <span class="post-date" title="2019-07-04 16:19:45">2019/07/04</span>
+        </a>
+        
+        <a  class="其他 "
+           href="/2019/08/29/other/java-years/"
+           data-tag=""
+           data-author="谢晋杰" >
+            <span class="post-title" title="我学java这么多年">我学java这么多年</span>
+            <span class="post-date" title="2019-08-29 21:37:27">2019/08/29</span>
         </a>
         
         <a id="top" class="读书 "
@@ -326,12 +326,12 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-03-25 22:39:28'>2020-03-19 17:55</time>
+        创建时间:<time class="date" title='更新时间: 2020-03-26 07:24:35'>2020-03-19 17:55</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:646</span>
+        <span>字数:657</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -395,22 +395,22 @@
 <h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><img src="http://kcoder-web.oss-cn-shenzhen.aliyuncs.com/img/20200323001.jpg" alt="缓存过程" width="80%" height="80%">
 
 <h2 id="策略"><a href="#策略" class="headerlink" title="策略"></a>策略</h2><ul>
-<li><p>强缓存</p>
-<p>使用强缓存时，浏览器不会向服务器发送请求，直接从缓存中读取资源。</p>
+<li><p>强制缓存</p>
+<p>使用强制缓存时，浏览器不会向服务器发送请求，直接从缓存中读取资源。</p>
 <p>强缓存可以通过设置HTTP响应头<strong>Expires 和 Cache-Control</strong>控制。</p>
 </li>
 </ul>
 <ul>
 <li><p>协商缓存</p>
-<p>当强制缓存失效后，浏览器会携带缓存标识向服务器发起请求。服务器根据缓存标识判断缓存是否有效，返回资源未更新（304状态码）或者更新后的资源。</p>
+<p>协商缓存是在强制缓存失效后，浏览器会携带缓存标识向服务器发起请求，由服务器决定是否使用缓存。浏览器根据缓存标识和资源比较，返回资源未更新（304状态码）或者新的资源。</p>
 <p>和协商缓存相关的HTTP头部包括Last-Modified和If-Modified-Since，ETag和If-None-Match</p>
 </li>
 </ul>
 <h2 id="相关阅读"><a href="#相关阅读" class="headerlink" title="相关阅读"></a>相关阅读</h2><p><a href="https://www.jianshu.com/p/54cc04190252" target="_blank" rel="noopener">深入理解浏览器缓存机制-简书</a></p>
-<p><a href="https://www.zhangxinxu.com/wordpress/2013/05/caching-tutorial-for-web-authors-and-webmasters/" target="_blank" rel="noopener">web制作、开发人员需知的Web缓存知识</a></p>
+<p><a href="https://www.zhangxinxu.com/wordpress/2013/05/caching-tutorial-for-web-authors-and-webmasters/" target="_blank" rel="noopener"></a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/56943873" target="_blank" rel="noopener">扒一扒浏览器缓存机制-知乎</a></p>
 <p><a href="https://www.cnblogs.com/iceflorence/p/8905825.html" target="_blank" rel="noopener">浏览器缓存：强缓存和协商缓存</a></p>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control" target="_blank" rel="noopener">Cache-Control-MDN</a></p>
-<p><a href="https://jakearchibald.com/2017/h2-push-tougher-than-i-thought/" target="_blank" rel="noopener"></a></p>
 <p><a href="https://tools.ietf.org/html/rfc7234" target="_blank" rel="noopener">HTTP/1.1 缓存协议</a></p>
 
       
@@ -426,10 +426,10 @@
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>缓存-浏览器缓存</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">646</span></p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">657</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="谢晋杰">谢晋杰</a></p>
     <p><span class="copy-title">发布时间:</span>2020-03-19, 17:55:56</p>
-    <p><span class="copy-title">最后更新:</span>2020-03-25, 22:39:28</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-26, 07:24:35</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/03/19/cs/web-chche/" title="缓存-浏览器缓存">https://blog.kcoder.top/2020/03/19/cs/web-chche/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
