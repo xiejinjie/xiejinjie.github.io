@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>无重复字符的最长子串 | Code Alchemist</title>
-  <meta name="keywords" content=" LeetCode ">
-  <meta name="description" content="无重复字符的最长子串 | Code Alchemist">
+  <title>网易云java高级工程师微专业笔记分享 | Code Alchemist</title>
+  <meta name="keywords" content=" 网易云java微专业 ">
+  <meta name="description" content="网易云java高级工程师微专业笔记分享 | Code Alchemist">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简介我是程序员，梦想是成为一名攻城狮，希望有朝一日可以设计超大型的系统。 物理出身，编程理论全靠自修，目前还是野战π，有能双修、带修的伙伴也是极好的。 双向性格，喜欢聊天，又不喜欢聊天。 崇拜的偶像是乔布斯，苹果大法好。 分享一句话：提高生产力最佳途径就是关注质量。">
 <meta property="og:type" content="website">
@@ -314,11 +314,13 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-algorithm/longest-substring-without-repeating-characters" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-backend/westnet-java" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">无重复字符的最长子串</h1>
+        <h1 class="article-title">网易云java高级工程师微专业笔记分享</h1>
     
     <div class="article-meta">
+        
+        <span class="top"><a>置顶</a></span>
         
         
         <span class="author"><a>谢晋杰</a></span>
@@ -326,26 +328,26 @@
         
         <span class="book">
             
-                <a  data-rel="算法">算法</a>
+                <a  data-rel="后端">后端</a>
             
         </span>
         
         
         <span class="tag">
             
-            <a class="color4">LeetCode</a>
+            <a class="color1">网易云java微专业</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-03-19 09:25:58'>2019-07-02 20:41</time>
+        创建时间:<time class="date" title='更新时间: 2020-03-29 09:20:45'>2020-03-28 16:45</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:288</span>
+        <span>字数:176</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -375,7 +377,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析"><span class="toc-text">分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#课程笔记分享计划"><span class="toc-text">课程笔记分享计划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text"></span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -391,23 +393,37 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/" target="_blank" rel="noopener">leetcode003</a></p>
-<a id="more"></a>
-
-<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。<br>示例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: &quot;abcabcbb&quot;</span><br><span class="line">输出: 3 </span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。</span><br></pre></td></tr></table></figure>
-
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>这道题目可以使用滑动窗口解题。滑动窗口是指两个索引分别指向区间开始和结尾，然后动态移动两个索引确定最终区间。</p>
-<ul>
-<li>创建两个索引（开始索引和结束索引）</li>
-<li>使用Set容器存放字符，判断是否重复</li>
-<li>获取结束索引字符，判断Set中是否存在<ul>
-<li>存在，容器移除开始索引对应字符，开始索引加一</li>
-<li>不存在，容器添加结束索引对应字符，结束索引加一，同时判断区间大小</li>
+        <p>报名学习了网易云java高级工程师微专业，感觉课程质量不错，这里计划在学习的过程中整理一下笔记，然后分享出来供大家参考学习，也算给网易云微专业打个广告吧。</p>
+<h2 id="课程笔记分享计划"><a href="#课程笔记分享计划" class="headerlink" title="课程笔记分享计划"></a>课程笔记分享计划</h2><ul>
+<li>高性能编程<ul>
+<li><input disabled="" type="checkbox"> 线程并发编程</li>
+<li><input disabled="" type="checkbox"> 并发网络编程</li>
+<li><input disabled="" type="checkbox"> java性能调优</li>
 </ul>
 </li>
+<li>中间件<ul>
+<li><input disabled="" type="checkbox"> 消息中间件</li>
+<li><input disabled="" type="checkbox"> 负载均衡中间件</li>
+<li><input disabled="" type="checkbox"> 缓存中间件</li>
+<li><input disabled="" type="checkbox"> 数据库中间件</li>
 </ul>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int lengthOfLongestSubstring(String s) &#123;</span><br><span class="line">        int max &#x3D; 0;</span><br><span class="line">        int start &#x3D; 0;</span><br><span class="line">        int end &#x3D; 0;</span><br><span class="line">        Set set &#x3D; new HashSet();</span><br><span class="line">        while (start &lt; s.length() &amp;&amp; end &lt; s.length()) &#123;</span><br><span class="line">            if (!set.contains(s.charAt(end)))&#123;</span><br><span class="line">                set.add(s.charAt(end++));</span><br><span class="line">                max &#x3D; Math.max(max, set.size());</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                set.remove(s.charAt(start++));</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        return max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>容器化技术<ul>
+<li><input disabled="" type="checkbox"> Docker容器</li>
+<li><input disabled="" type="checkbox"> Kubernetes集群</li>
+<li><input disabled="" type="checkbox"> ElasticSearch技术</li>
+</ul>
+</li>
+<li>分布式系统开发技术<ul>
+<li><input disabled="" type="checkbox"> 分布式应用协调</li>
+<li><input disabled="" type="checkbox"> RPC服务治理矿建</li>
+<li><input disabled="" type="checkbox"> SpringCloud微服务</li>
+</ul>
+</li>
+<li>后端项目实战</li>
+<li>项目分享</li>
+</ul>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 xiejinjie1234@qq.com </span>
     </div>
@@ -420,12 +436,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>无重复字符的最长子串</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">288</span></p>
+    <p><span class="copy-title">文章标题:</span>网易云java高级工程师微专业笔记分享</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">176</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="谢晋杰">谢晋杰</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-07-02, 20:41:26</p>
-    <p><span class="copy-title">最后更新:</span>2020-03-19, 09:25:58</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/07/02/algorithm/longest-substring-without-repeating-characters/" title="无重复字符的最长子串">https://blog.kcoder.top/2019/07/02/algorithm/longest-substring-without-repeating-characters/</a>
+    <p><span class="copy-title">发布时间:</span>2020-03-28, 16:45:04</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-29, 09:20:45</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/03/28/backend/westnet-java/" title="网易云java高级工程师微专业笔记分享">https://blog.kcoder.top/2020/03/28/backend/westnet-java/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
