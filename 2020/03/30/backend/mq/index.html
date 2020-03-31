@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>六大设计原则 | Code Alchemist</title>
-  <meta name="keywords" content=" 设计模式 ">
-  <meta name="description" content="六大设计原则 | Code Alchemist">
+  <title>消息中间件简介 | Code Alchemist</title>
+  <meta name="keywords" content=" 网易云java微专业 , 消息中间件 ">
+  <meta name="description" content="消息中间件简介 | Code Alchemist">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="个人简介我是程序员，梦想是成为一名攻城狮，希望有朝一日可以设计超大型的系统。 物理出身，编程理论全靠自修，目前还是野战π，有能双修、带修的伙伴也是极好的。 双向性格，喜欢聊天，又不喜欢聊天。 崇拜的偶像是乔布斯。 分享Kahlil Gibran的一首诗Seven times have I despised my soul： The first time when I saw her being m">
 <meta property="og:type" content="website">
@@ -326,9 +326,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-backend/design-principle" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-backend/mq" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">六大设计原则</h1>
+        <h1 class="article-title">消息中间件简介</h1>
     
     <div class="article-meta">
         
@@ -345,19 +345,21 @@
         
         <span class="tag">
             
-            <a class="color5">设计模式</a>
+            <a class="color1">网易云java微专业</a>
+            
+            <a class="color1">消息中间件</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-03-19 09:25:47'>2019-08-13 20:35</time>
+        创建时间:<time class="date" title='更新时间: 2020-03-31 09:09:54'>2020-03-30 10:30</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:437</span>
+        <span>字数:556</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -387,7 +389,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Single-Responsibilty-Principle-SRP"><span class="toc-text">Single Responsibilty Principle(SRP)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Open-Closed-Principle（OCP）"><span class="toc-text">Open-Closed Principle（OCP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Liskov-Substitution-Principe（LSP）"><span class="toc-text">Liskov Substitution Principe（LSP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dependency-Inversion-Principe（DIP）"><span class="toc-text">Dependency Inversion Principe（DIP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interface-Segregation-Principe（ISP）"><span class="toc-text">Interface Segregation Principe（ISP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Law-Of-Demeter-LoD"><span class="toc-text">Law Of Demeter(LoD)</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#常见消息中间件"><span class="toc-text">常见消息中间件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是消息中间件"><span class="toc-text">什么是消息中间件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用场景"><span class="toc-text">使用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#本质"><span class="toc-text">本质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#核心组成"><span class="toc-text">核心组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#协议"><span class="toc-text">协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分发策略"><span class="toc-text">分发策略</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -403,19 +405,86 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>六大设计原则则是学习设计模式的基本功，而设计模式是软件开发人员的内功。</p>
-<a id="more"></a>
-
-<p>这六大设计模式分别是单一职责、开闭原则、里氏代换、依赖倒转、接口隔离、迪米特法则。</p>
-<p>六大设计原则好比是一把尺子，它们可以帮助我们找出代码中设计不合理的地方，同时也是用来评价一个设计模式使用效果的重要指标。</p>
-<p>接下来我们一一介绍这六大设计原则。</p>
-<h2 id="Single-Responsibilty-Principle-SRP"><a href="#Single-Responsibilty-Principle-SRP" class="headerlink" title="Single Responsibilty Principle(SRP)"></a>Single Responsibilty Principle(SRP)</h2><p><strong>单一职责原则</strong>：一个类只负责一个功能领域中的相应职责。或者可以定义为：就一个类而言应该只有一个引起它变化的原因。</p>
-<h2 id="Open-Closed-Principle（OCP）"><a href="#Open-Closed-Principle（OCP）" class="headerlink" title="Open-Closed Principle（OCP）"></a>Open-Closed Principle（OCP）</h2><p><strong>开闭原则</strong>：一个软件实体应该对扩展开放，对修改关闭。即软件实体应尽量在不修改原有代码的情况下进行扩展。</p>
-<p>简而言之，就是在增加新功能的时候，尽量不会造成原有代码的变动。</p>
-<h2 id="Liskov-Substitution-Principe（LSP）"><a href="#Liskov-Substitution-Principe（LSP）" class="headerlink" title="Liskov Substitution Principe（LSP）"></a>Liskov Substitution Principe（LSP）</h2><p><strong>里氏代换原则</strong>：所有引用基类（父类）的地方必须能够透明地使用其子类对象。</p>
-<h2 id="Dependency-Inversion-Principe（DIP）"><a href="#Dependency-Inversion-Principe（DIP）" class="headerlink" title="Dependency Inversion Principe（DIP）"></a>Dependency Inversion Principe（DIP）</h2><p><strong>依赖倒转原则</strong>：抽象不应该依赖细节，细节应当依赖抽象。换言之，要针对接口编程，而不是针对实现编程。</p>
-<h2 id="Interface-Segregation-Principe（ISP）"><a href="#Interface-Segregation-Principe（ISP）" class="headerlink" title="Interface Segregation Principe（ISP）"></a>Interface Segregation Principe（ISP）</h2><p><strong>接口隔离原则</strong>：使用多个专门的接口，而不使用单一的总接口，即客户端不应该依赖那些它不需要的接口。</p>
-<h2 id="Law-Of-Demeter-LoD"><a href="#Law-Of-Demeter-LoD" class="headerlink" title="Law Of Demeter(LoD)"></a>Law Of Demeter(LoD)</h2><p><strong>迪米特法则</strong>：一个软件实体应该尽可能少地与其他实体发生相互作用。</p>
+        <h2 id="常见消息中间件"><a href="#常见消息中间件" class="headerlink" title="常见消息中间件"></a>常见消息中间件</h2><ul>
+<li><input disabled="" type="checkbox"> Activemq</li>
+<li><input disabled="" type="checkbox"> Rabbitmq</li>
+<li><input disabled="" type="checkbox"> Kafka</li>
+<li><input disabled="" type="checkbox"> Rocketmq</li>
+</ul>
+<h2 id="什么是消息中间件"><a href="#什么是消息中间件" class="headerlink" title="什么是消息中间件"></a>什么是消息中间件</h2><p>利用高效可靠的消息传递机制进行平台无关的数据交流。</p>
+<p>并基于数据通信来进行分布式系统集成。</p>
+<p>通过提供消息传递和消息排队模型，可以在分布式环境下扩展进程的通信。</p>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>跨系统数据传递，高并发流量削峰，数据异步处理</p>
+<h2 id="本质"><a href="#本质" class="headerlink" title="本质"></a>本质</h2><p>一种具备接受请求，保存数据和发送数据等功能的网络应用</p>
+<p>和一般网络应用的区别是，它主要负责消息的接受和传递，所以性能要高于一般应用</p>
+<h2 id="核心组成"><a href="#核心组成" class="headerlink" title="核心组成"></a>核心组成</h2><p>协议、持久化、消息分发机制、高可用设计、高可靠机制</p>
+<h2 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h2><p>协议是计算机通信时共同遵守的一组约定，都遵守相同约定，计算机才能相互交流</p>
+<p>协议三要素：语法、语义、时序</p>
+<p>消息中间件常用协议</p>
+<ul>
+<li><p>AMQP(Advanced Message Queuing Protocol)</p>
+<p>高级消息队列协议，04年JPMorgan Chase（摩根大通集团）联合其他公司共同设计。</p>
+<p>特性：事务支持、持久化支持，出生金融行业，在可靠消息处理上具有天然优势。</p>
+</li>
+<li><p>MQTT(Message Queuing Telemetry Transport)</p>
+<p>消息队列遥测传输是IBM开发的一个即时通讯协议，物联网架构中重要组成部分。</p>
+<p>特性：轻量、结构简单、传输快、没有事务支持、没有持久化相关支持。</p>
+</li>
+<li><p>OPEN MESSAGE</p>
+<p>OPEN MESSAGE是由阿里发起，与雅虎、滴滴、streamlio等公司共同参与创立的分布式消息中间件、流处理的应用开发标准。是国内首个在全球范围内发起的分布式消息邻域国际标准。</p>
+<p>特性：结构简单、解析快、有事务设计、有持久化设计</p>
+</li>
+<li><p>Kafka</p>
+<p>Kafka协议是基于TCP的二进制协议。消息内部是通过长度来分割，由一些基本数据类型组成</p>
+<p>特性：结构简单、解析快、无事务设计、有持久化设计</p>
+</li>
+</ul>
+<h2 id="分发策略"><a href="#分发策略" class="headerlink" title="分发策略"></a>分发策略</h2><table>
+<thead>
+<tr>
+<th></th>
+<th align="center">Activemq</th>
+<th align="center">Rabbitmq</th>
+<th align="center">Kafka</th>
+<th align="center">Rocketmq</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>发布订阅</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td>轮询分发</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td>公平分发</td>
+<td align="center">-</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">-</td>
+</tr>
+<tr>
+<td>重发</td>
+<td align="center">-</td>
+<td align="center">√</td>
+<td align="center">-</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td>消息拉取</td>
+<td align="center">-</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+</tbody></table>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 xiejinjie1234@qq.com </span>
@@ -429,12 +498,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>六大设计原则</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">437</span></p>
+    <p><span class="copy-title">文章标题:</span>消息中间件简介</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">556</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="谢晋杰">谢晋杰</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-08-13, 20:35:54</p>
-    <p><span class="copy-title">最后更新:</span>2020-03-19, 09:25:47</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/08/13/backend/design-principle/" title="六大设计原则">https://blog.kcoder.top/2019/08/13/backend/design-principle/</a>
+    <p><span class="copy-title">发布时间:</span>2020-03-30, 10:30:40</p>
+    <p><span class="copy-title">最后更新:</span>2020-03-31, 09:09:54</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/03/30/backend/mq/" title="消息中间件简介">https://blog.kcoder.top/2020/03/30/backend/mq/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
