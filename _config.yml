@@ -21,10 +21,10 @@
 title: Xie Jinjie
 email: 544482194@qq.com
 description: >- # this means to ignore newlines until "baseurl:"
-  welcome my blog
+  A software engineer, mainly doing java development, likes the ruby language, and wants to meet some interesting person.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: xiejinjie
+twitter_username:
 github_username:  xiejinjie
 
 # Build settings
