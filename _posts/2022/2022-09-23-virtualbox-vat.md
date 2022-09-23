@@ -1,7 +1,9 @@
+---
 layout: post
 title: "VirtualBox VAT模式下使用SSH连接虚拟机"
 date: 2022-09-23 15:09:00 +0800
 categories: tech
+---
 
 ## 由来
 
