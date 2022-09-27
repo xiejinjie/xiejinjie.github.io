@@ -1,0 +1,18 @@
+{%- assign social = site.minima.social_links -%}
+
+<div class="social-media-list"">
+  {%- if social.github -%}
+    <a rel="me" href="{{ social.github | escape }}" target="_blank" title="{{ social.github | escape }}">
+        <svg class="svg-icon grey">
+            <use xlink:href="{{ '/assets/minima-social-icons.svg#github' | relative_url }}"></use>
+        </svg>
+    </a>
+  {%- endif -%}
+  {%- if social.zhihu -%}
+    <a rel="me" href="{{ social.zhihu | escape }}" target="_blank" title="{{ social.zhihu | escape }}">
+        <svg class="svg-icon grey">
+            <image xmlns="http://www.w3.org/2000/svg" width="16" height="16" href="/assets/zhihu.svg"/>
+        </svg>
+    </a>
+  {%- endif -%}
+</div>
