@@ -18,12 +18,12 @@ categories: tech
 - Host-Only模式，这个将主机和虚拟机组建一个独立的网络，不能访问外部连接。
   由于我的办公电脑会经常切换网络，所以使用了VAT模式给虚拟机配置确定的ip访问。但是发现VAT模式下虚拟机可以访问主机，但是主机无法访问到虚拟机。看了一下VirtualBox的配置手册，发现有这样一段话：
 
-![](https://pic.kcoder.top/20220922150610.png)
+![](https://raw.githubusercontent.com/xiejinjie/xiejinjie.github.io/gh-pages/assets/img/20220922150610.png)
 
 简单来讲就是虚拟机接入了Virtual创建的私有网络，这个私有网络是对外部不可访问的。但是可以通过"端口转发"这个配置来让外部可访问。这实际上是Virtual会监听这个端口并且转发所有的数据包到虚拟机上。
 关于配置端口转发提供了两种方式，可视化界面配置和基于命令配置。关于命令配置又给了以下的样例：
 
-![](https://pic.kcoder.top/20220923000342.png)
+![](https://raw.githubusercontent.com/xiejinjie/xiejinjie.github.io/gh-pages/assets/img/20220923000342.png)
 
 这是一个ssh转发的配置样例，之后有提到虚拟机ip是内建DHCP服务器自动分配的时候是不需要配置虚拟机ip，但如果是固定分配了ip，虚拟机的ip就一定要配置。
 
@@ -31,14 +31,14 @@ categories: tech
 
 1. 使用可视化配置，在虚拟机网络配置的端口配置创建如下端口转发规则TCP 1022=>22
 
-![](https://pic.kcoder.top/20220922232423.png)
+![](https://raw.githubusercontent.com/xiejinjie/xiejinjie.github.io/gh-pages/assets/img/20220922232423.png)
 
-![](https://pic.kcoder.top/20220922234129.png)
+![](https://raw.githubusercontent.com/xiejinjie/xiejinjie.github.io/gh-pages/assets/img/20220922234129.png)
 
 2. SSH工具添加session连接，配置host填1270.0.0.1，port填1022
 
-![](https://pic.kcoder.top/20220922234209.png)
+![](https://raw.githubusercontent.com/xiejinjie/xiejinjie.github.io/gh-pages/assets/img/20220922234209.png)
 
 然后测试连接，就可以啦！
 
-![](https://pic.kcoder.top/20220923001104.png)
+![](https://raw.githubusercontent.com/xiejinjie/xiejinjie.github.io/gh-pages/assets/img/20220923001104.png)
