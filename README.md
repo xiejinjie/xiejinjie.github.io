@@ -1,4 +1,4 @@
-## about me
+## About me
 A software engineer, mainly doing java development, likes the ruby language, and wants to meet some interesting person.
 
 The page code is in the gh-pages branch.
