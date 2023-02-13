@@ -6,7 +6,7 @@ categories: tech
 ---
 
 ## 简介
-当Java项目开发完成后，要在实际环境运行，就需要将代码打包为可执行Jar。对于不同类型的Java项目，需要做不同的配置和打包操作。这边介绍三种类型项目配置打包可执行Jar的方式：普通Java项目、普通Maven项目、Spring项目。
+当Java项目开发完成后，要在实际环境运行，就需要将程序代码打包为可执行Jar文件，这样可以更方便的移动和部署。对于不同类型的Java项目，需要做不同的配置和打包操作。这边介绍三种类型项目配置打包可执行Jar的方式：普通Java项目、普通Maven项目、Spring项目。
 
 ## 基础知识
 - Jar文件
@@ -24,10 +24,7 @@ categories: tech
   ```java -jar MyProgram.jar```
 
 - 清单文件
-  清单文件 MANIFEST.MF，用于描述Jar文件特征，位于JAR文件META-INF子目录中。创建的可执行Jar文件实际就是在原始Jar的清单文件中添加了Main-Classd的配置。
-
-
-http://docs.orade.com/javase/8/docs/technotes/guides/jar
+  清单文件 MANIFEST.MF，用于描述Jar文件特征，位于JAR文件META-INF子目录中。创建的可执行Jar文件实际就是在原始Jar的清单文件中添加了Main-Class的配置。
 
 ## 普通Java项目
 IDEA配置
