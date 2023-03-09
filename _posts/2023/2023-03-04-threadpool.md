@@ -8,7 +8,7 @@ categories: tech
 ## 简介
 并发编程过程中经常会用到线程池，他帮我们管理线程，减少了频繁创建线程的开销。通常会使用Executors创建线程池，Executors提供了这三种常用的线程池，Executors.newCachedThreadPool()、Executors.newFixedThreadPool(int)、Executors.newSingleThreadExecutor()。这三种线程池对应的都是**ThreadPoolExecutor**这个类，只是使用了不同的构造参数，这里讲解一下这些参数，从而加深对线程池的理解。
 
-先看一下ThreadPoolExecutor全部的构造参数，如下
+先看一下ThreadPoolExecutor全部的构造参数，如下所示：
 ```
 public ThreadPoolExecutor(  int corePoolSize,
                             int maximumPoolSize,
@@ -28,7 +28,7 @@ public ThreadPoolExecutor(  int corePoolSize,
 4. 工作线程数=最大线程数,且任务队列已满；拒绝任务。
 
 将核心线程数和最大线程数设置为相同的值，就得到了固定容量的线程池，等同于Executors.newFixedThreadPool(int)。将最大线程数设置为Integer.MAX_VALUE，线程池可以容纳任意数量的并发任务。
-核心线程默认只会在新任务提交时初始化，可以使用prestartCoreThread()或prestartAllCoreThreads()启动一个或多个核心线程。
+核心线程默认只会在新任务提交时初始化，想要提前初始化，可以使用prestartCoreThread()或prestartAllCoreThreads()启动一个或多个核心线程。
 
 下面是一个的示例程序，创建了一个核心线程为1，最大线程为2，任务队列为1的线程池，依次提交了4个任务，每个任务直接休眠10s。
 
@@ -91,7 +91,7 @@ public class ThreadPoolTest {
 ![](https://raw.githubusercontent.com/xiejinjie/xiejinjie.github.io/gh-pages/assets/img/20230309193008.png)
 
 ## 存活时间（keepAliveTime,unit）
-当线程池内的线程数量超过了核心线程数，那么超过的线程空闲时间超过线程存活时间，就会被终止。这是为了减少线程池在不使用时资源的占用。使用Long.MAX_VALUE、TimeUnit.NANOSECONDS这两个参数，可以让空闲的线程不被终止。使用allowCoreThreadTimeOut(boolean) 方法，可以让核心线程也会超时终止。
+当线程池内的线程数量超过了核心线程数，那么超过的线程的空闲时间超过设置的线程存活时间，就会被终止。这是为了减少线程池在不使用时资源的占用。同时使用Long.MAX_VALUE、TimeUnit.NANOSECONDS这两个参数，可以让空闲的线程不被终止。使用allowCoreThreadTimeOut(boolean) 方法，可以让核心线程也会被空闲超时终止。
 
 ## 任务队列（workQueue）
 用来存储提交的任务，任务队列会影响线程池的容量，提交任务时：
@@ -100,11 +100,11 @@ public class ThreadPoolTest {
 3. 当队列已满，就会创建新的线程，线程数量达到最大线程数据，就会拒绝任务。
 
 一般有以下三种使用队列的策略：
-1. 直接传递：使用SynchronousQueue，队列没有容量，会直接将任务给到线程。
-2. 无界队列：使用LinkedBlockingQueue，不指定容量，会导致工作线程数量不会超过核心线程。
-3. 有界队列：使用ArrayBlockingQueue，需要更不容易的调试和控制。
+1. 直接传递：比如使用SynchronousQueue，队列没有容量，会将任务直接交给线程。当处理的任务集有内部依赖时，这样可以避免锁定。
+2. 无界队列：比如使用LinkedBlockingQueue，不指定容量，会导致工作线程数量不会超过核心线程。当每个任务都是独立的，这可能会很合适。
+3. 有界队列：比如使用ArrayBlockingQueue，可能更不容易的调试和控制。可以通过调整最大线程数和队列大小获得不同的使用效果。
 
-可以使用getQueue()获取任务队列，用来进行监控和调试。
+可以使用getQueue()方法来获取任务队列，用来进行监控和调试。
 
 ## 线程工厂类（threadFactory）
 用来创建新的线程，默认使用Executors.defaultThreadFactory()，创建的线程都是非守护线程，属于同一个ThreadGroup，优先级为NORM_PRIORITY。
@@ -118,9 +118,9 @@ public class ThreadPoolTest {
 
 ## 钩子函数
 ThreadPoolExecutor提供了几个钩子函数，可以进行重写来满足特殊的业务。
-- beforeExecute(Thread, Runnable) 每个任务提交前执行
-- afterExecute(Runnable, Throwable) 每个任务提交后执行
-- terminated() 所有的线程终止后执行
+- beforeExecute(Thread, Runnable) 每个任务提交前执行。
+- afterExecute(Runnable, Throwable) 每个任务提交后执行。
+- terminated() 所有的线程终止后执行。
 
 Java doc中提供了一个使用钩子函数实现线程池暂停的样例，如下：
 
