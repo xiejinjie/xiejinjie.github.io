@@ -9,7 +9,7 @@ SpringBoot可以使用SpringApplicationBuilder构建启动参数，通过.web可
 
 ```
 @SpringBootApplication
-public class App {
+public class App implements ApplicationRunner {
     private static final Logger logger = LoggerFactory.getLogger(App.class);
 
     public static void main(String[] args) {
@@ -20,7 +20,13 @@ public class App {
                 .run(args);
         logger.info("(♥◠‿◠)ﾉﾞ  应用启动成功   ლ(´ڡ`ლ)ﾞ  ");
     }
+
+    @Override
+    public void run(ApplicationArguments args) {
+        // 启动frame
+    }
 }
 ```
 
-其中有配置headless为false，这是针对需要使用awt的场景。springboot默认为非交互式的，禁止启动awt。
+- 其中配置headless为false，这是针对需要使用awt的场景。springboot默认为非交互式的，禁止启动awt。
+- 其中实现ApplicationRunner，可以在成功启动Spring上下文之后执行一些操作
